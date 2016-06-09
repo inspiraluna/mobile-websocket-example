@@ -49,7 +49,8 @@
   webSocket.delegate = nil;
   webSocket = nil;
 
-  NSString *urlString = @"ws://localhost:8080";
+   // NSString *urlString = @"ws://localhost:8080";
+  NSString *urlString = @"ws://localhost:8080/jServer/echo";
   SRWebSocket *newWebSocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlString]];
   newWebSocket.delegate = self;
 

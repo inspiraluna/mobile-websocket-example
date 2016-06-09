@@ -1,3 +1,5 @@
 platform :ios, "7.0"
 
-pod "SocketRocket"
+target "WebsocketExampleClient" do
+	pod "SocketRocket", "= 0.3.1-beta2"
+end

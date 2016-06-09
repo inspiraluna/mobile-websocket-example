@@ -1,5 +1,7 @@
 $(document).ready(function() {
-	ws = new WebSocket("ws://" + location.hostname + ":8080/");
+	//ws = new WebSocket("ws://" + location.hostname + ":8080/");
+
+	ws = new WebSocket("ws://localhost:8080/WebSocketTest/echo");
 
 	ws.onmessage = function(event) {
 		$("#messages").append("<p>" + event.data + "</p>");

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.drafts.Draft_17;
 import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
@@ -76,14 +77,15 @@ public class MainActivity extends Activity {
     private void connectWebSocket() {
         URI uri;
         try {
-            uri = new URI("ws://websockethost:8080");
+            Log.i("Websocket","trying to connect to 192.168.43.251");
+            uri = new URI("ws://192.168.43.251:8080/jServer/echo");
+            Log.i("Websocket", "ws://192.168.43.251:8080/jServer/echo");
         } catch (URISyntaxException e) {
             e.printStackTrace();
             return;
         }
 
-        mWebSocketClient = new WebSocketClient(uri) {
-            @Override
+        mWebSocketClient = new WebSocketClient(uri, new Draft_17()) {
             public void onOpen(ServerHandshake serverHandshake) {
                 Log.i("Websocket", "Opened");
                 mWebSocketClient.send("Hello from " + Build.MANUFACTURER + " " + Build.MODEL);
